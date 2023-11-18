@@ -1,7 +1,9 @@
 [package]
-name="with_foundry"
+name="noir_battle_score"
 type="bin"
 authors = ["critesjosh"]
 compiler_version = "~0.19.2"
 
 [dependencies]
+frog = { git = "https://github.com/TomAFrench/frogcrypto", tag = "master" }
+semaphore = { git = "https://github.com/TomAFrench/semaphore-noir", tag = "master" }
