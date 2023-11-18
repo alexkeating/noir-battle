@@ -16,7 +16,7 @@ const storeProof = async (body: any) => {
 
 export default async function proofHandler(
   req: NextApiRequest,
-  res: NextApiResponse<ResponseError>
+  res: NextApiResponse<any | ResponseError>
 ) {
 	if (req.method === 'POST') {
 		const { body } = req
