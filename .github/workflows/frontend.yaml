@@ -6,18 +6,14 @@ on:
 
 jobs:
    build:
+    defaults:
+      run:
+        working-directory: frontend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: volta-cli/action@v4
       - run: yarn install
+      - run: yarn run lint
       - name: Build frontend
         run: yarn run build
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: volta-cli/action@v4
-      - run: yarn install
-      - name: Build frontend
-        run: yarn run lint
