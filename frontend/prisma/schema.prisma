@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// This will need to be modified
+// to have the public inputs.
+model Proof {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  proof     Bytes    @unique
+  battle    Battle   @relation(fields: [battleId], references: [id])
+  battleId  Int 
+}
+
+model Battle {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  proof     Proof[]  
+}
