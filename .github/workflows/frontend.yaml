@@ -1,0 +1,31 @@
+l -L https://foundry.paradigm.xyz | bash then nargo codegen-verifier then nargo prove p
+
+name: Run Frontend ci
+on:
+  pull_request:
+    paths:
+      - 'frontend/**'
+
+jobs:
+  build:
+   defaults:
+      run:
+        working-directory: frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: volta-cli/action@v4
+      - run: yarn install
+      - name: Build frontend
+        run: yarn run build
+  lint:
+    defaults:
+      run:
+        working-directory: frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: volta-cli/action@v4
+      - run: yarn install
+      - name: Build frontend
+        run: yarn run lint
