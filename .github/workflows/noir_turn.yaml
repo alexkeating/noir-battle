@@ -27,12 +27,12 @@ jobs:
     - name: Generate verifier contract
       run: |
         nargo codegen-verifier
-      working-directory: circuits
+      working-directory: noir-turn/circuits
 
     - name: Generate proof
       run: |
         nargo prove
-      working-directory: circuits
+      working-directory: noir-turn/circuits
 
     - name: Test with Foundry
       run: |
