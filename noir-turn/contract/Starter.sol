@@ -1,6 +1,6 @@
 pragma solidity ^0.8.17;
 
-import "circuits/contract/with_foundry/plonk_vk.sol";
+import "circuits/contract/noir_battle_score/plonk_vk.sol";
 
 contract Starter {
     UltraVerifier public verifier;

@@ -18,9 +18,7 @@ fn main(
 	  frog_signature_s, frog_signature_r8_x, frog_signature_r8_y,
 	  semaphore_identity
 	);
-	// Can this be manipulated 
 	let score = frog.speed + frog.jump + frog.intelligence + frog.beauty;
-	// assert frog_score == score
 	score
 }
 

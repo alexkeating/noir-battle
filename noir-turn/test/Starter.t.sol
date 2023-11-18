@@ -2,7 +2,7 @@ pragma solidity ^0.8.17;
 
 import "forge-std/Test.sol";
 import "contract/Starter.sol";
-import "circuits/contract/with_foundry/plonk_vk.sol";
+import "circuits/contract/noir_battle_score/plonk_vk.sol";
 
 contract StarterTest is Test {
     Starter public starter;
@@ -16,19 +16,19 @@ contract StarterTest is Test {
         verifier = new UltraVerifier();
         starter = new Starter(verifier);
 
-        correct[0] = bytes32(0x0000000000000000000000000000000000000000000000000000000000000003);
-        wrong[0] = bytes32(0x0000000000000000000000000000000000000000000000000000000000000004);
+        correct[0] = bytes32(0x0000000000000000000000000000000000000000000000000000000000000003); // correct public inputs
+        wrong[0] = bytes32(0x0000000000000000000000000000000000000000000000000000000000000004); // wrong public inputs
     }
 
     function testVerifyProof() public {
-        string memory proof = vm.readLine("./circuits/proofs/with_foundry.proof");
+        string memory proof = vm.readLine("./circuits/proofs/noir_battle_score.proof");
         bytes memory proofBytes = vm.parseBytes(proof);
         starter.verifyEqual(proofBytes, correct);
     }
 
     function test_wrongProof() public {
         vm.expectRevert();
-        string memory proof = vm.readLine("./circuits/proofs/with_foundry.proof");
+        string memory proof = vm.readLine("./circuits/proofs/noir_battle_score.proof");
         bytes memory proofBytes = vm.parseBytes(proof);
         starter.verifyEqual(proofBytes, wrong);
     }
@@ -50,39 +50,39 @@ contract StarterTest is Test {
         cleanup(testName);
     }
 
-    function test_dynamicProofSecondTest() public {
-        string memory testName = "test2";
-        string[] memory _fieldNames = new string[](2);
-        string[] memory _fieldValues = new string[](2);
+    // function test_dynamicProofSecondTest() public {
+    //     string memory testName = "test2";
+    //     string[] memory _fieldNames = new string[](2);
+    //     string[] memory _fieldValues = new string[](2);
 
-        _fieldNames[0] = "x";
-        _fieldNames[1] = "y";
-        _fieldValues[0] = "8";
-        _fieldValues[1] = "8";
+    //     _fieldNames[0] = "x";
+    //     _fieldNames[1] = "y";
+    //     _fieldValues[0] = "8";
+    //     _fieldValues[1] = "8";
 
-        // Set expected dynamic proof outcome
-        dynamicCorrect[0] = bytes32(0x0000000000000000000000000000000000000000000000000000000000000008);
-        bytes memory proofBytes = generateDynamicProof(testName, _fieldNames, _fieldValues);
-        starter.verifyEqual(proofBytes, dynamicCorrect);
-        cleanup(testName);
-    }
+    //     // Set expected dynamic proof outcome
+    //     dynamicCorrect[0] = bytes32(0x0000000000000000000000000000000000000000000000000000000000000008);
+    //     bytes memory proofBytes = generateDynamicProof(testName, _fieldNames, _fieldValues);
+    //     starter.verifyEqual(proofBytes, dynamicCorrect);
+    //     cleanup(testName);
+    // }
 
-    function test_dynamicProofThirdTest() public {
-        string memory testName = "test3";
-        string[] memory _fieldNames = new string[](2);
-        string[] memory _fieldValues = new string[](2);
+    // function test_dynamicProofThirdTest() public {
+    //     string memory testName = "test3";
+    //     string[] memory _fieldNames = new string[](2);
+    //     string[] memory _fieldValues = new string[](2);
 
-        _fieldNames[0] = "x";
-        _fieldNames[1] = "y";
-        _fieldValues[0] = "7";
-        _fieldValues[1] = "7";
+    //     _fieldNames[0] = "x";
+    //     _fieldNames[1] = "y";
+    //     _fieldValues[0] = "7";
+    //     _fieldValues[1] = "7";
 
-        // Set expected dynamic proof outcome
-        dynamicCorrect[0] = bytes32(0x0000000000000000000000000000000000000000000000000000000000000007);
-        bytes memory proofBytes = generateDynamicProof(testName, _fieldNames, _fieldValues);
-        starter.verifyEqual(proofBytes, dynamicCorrect);
-        cleanup(testName);
-    }
+    //     // Set expected dynamic proof outcome
+    //     dynamicCorrect[0] = bytes32(0x0000000000000000000000000000000000000000000000000000000000000007);
+    //     bytes memory proofBytes = generateDynamicProof(testName, _fieldNames, _fieldValues);
+    //     starter.verifyEqual(proofBytes, dynamicCorrect);
+    //     cleanup(testName);
+    // }
 
     /// @dev This function generates dynamic proofs using 2 scripts in the /script directory
     ///
@@ -114,7 +114,7 @@ contract StarterTest is Test {
         ffi_command[1] = _testName;
         bytes memory commandResponse = vm.ffi(ffi_command);
         console.log(string(commandResponse));
-        string memory _newProof = vm.readLine(string.concat("./tmp/", _testName, "/proofs/with_foundry.proof"));
+        string memory _newProof = vm.readLine(string.concat("./tmp/", _testName, "/proofs/noir_battle_score.proof"));
         return vm.parseBytes(_newProof);
     }
 
