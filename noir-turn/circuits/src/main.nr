@@ -12,14 +12,16 @@ fn main(
     frog_signature_s: pub Field,
     frog_signature_r8_x: pub Field,
     frog_signature_r8_y: pub Field,
-    semaphore_identity: SemaphoreIdentity) -> pub (Field, Field, Field) {
+    semaphore_identity: SemaphoreIdentity) -> pub Field {
     assert_frog_ownership(
 	  frog, frog_signer_pubkey_A_x, frog_signer_pubkey_A_y,
 	  frog_signature_s, frog_signature_r8_x, frog_signature_r8_y,
 	  semaphore_identity
 	);
-	let tup = (frog.speed, frog.jump, frog.intelligence);
-	tup
+	// Can this be manipulated 
+	let score = frog.speed + frog.jump + frog.intelligence + frog.beauty;
+	// assert frog_score == score
+	score
 }
 
 #[test]
@@ -68,7 +70,5 @@ fn prove_frog_ownership() {
         frog_signature_r8_y,
         my_identity,
     );
-    std::println(tup.0);
-    std::println(tup.1);
-    std::println(tup.2);
+    std::println(tup);
 }
