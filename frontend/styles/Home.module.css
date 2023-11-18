@@ -2,6 +2,28 @@
   padding: 0 2rem;
 }
 
+.frogContainer {
+  max-width: 340px;
+}
+
+.frog {
+  max-width: 340px;
+  position: relative;
+}
+
+.frog .img {
+  filter: grayscale(100%);
+  position: absolute;
+  z-index: 1;
+  max-width: 340px;
+}
+
+.frog .blood {
+  position: absolute;
+  z-index: 10;
+  max-width: 340px;
+}
+
 .main {
   min-height: 100vh;
   padding: 4rem 0;
