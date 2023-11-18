@@ -34,7 +34,7 @@ contract StarterTest is Test {
     }
 
     function test_dynamicProof() public {
-		string memory testName = "test1";
+        string memory testName = "test1";
         string[] memory _fieldNames = new string[](2);
         string[] memory _fieldValues = new string[](2);
 
@@ -47,11 +47,11 @@ contract StarterTest is Test {
         dynamicCorrect[0] = bytes32(0x0000000000000000000000000000000000000000000000000000000000000005);
         bytes memory proofBytes = generateDynamicProof(testName, _fieldNames, _fieldValues);
         starter.verifyEqual(proofBytes, dynamicCorrect);
-		cleanup(testName);
+        cleanup(testName);
     }
 
     function test_dynamicProofSecondTest() public {
-	    string memory testName = "test2";
+        string memory testName = "test2";
         string[] memory _fieldNames = new string[](2);
         string[] memory _fieldValues = new string[](2);
 
@@ -64,11 +64,11 @@ contract StarterTest is Test {
         dynamicCorrect[0] = bytes32(0x0000000000000000000000000000000000000000000000000000000000000008);
         bytes memory proofBytes = generateDynamicProof(testName, _fieldNames, _fieldValues);
         starter.verifyEqual(proofBytes, dynamicCorrect);
-		cleanup(testName);
+        cleanup(testName);
     }
 
     function test_dynamicProofThirdTest() public {
-		string memory testName = "test3";
+        string memory testName = "test3";
         string[] memory _fieldNames = new string[](2);
         string[] memory _fieldValues = new string[](2);
 
@@ -81,7 +81,7 @@ contract StarterTest is Test {
         dynamicCorrect[0] = bytes32(0x0000000000000000000000000000000000000000000000000000000000000007);
         bytes memory proofBytes = generateDynamicProof(testName, _fieldNames, _fieldValues);
         starter.verifyEqual(proofBytes, dynamicCorrect);
-		cleanup(testName);
+        cleanup(testName);
     }
 
     /// @dev This function generates dynamic proofs using 2 scripts in the /script directory
