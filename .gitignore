@@ -132,6 +132,7 @@ dist
 # Noir
 **/cache
 **/out
+**/lib/*
 **/proofs
 **/broadcast
 **/.env
