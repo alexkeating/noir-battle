@@ -1,4 +1,3 @@
-
 name: Run Frontend ci
 on:
   pull_request:
@@ -6,11 +5,7 @@ on:
       - 'frontend/**'
 
 jobs:
- defaults:
-    run:
-      working-directory: frontend
-
-  build:
+   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
