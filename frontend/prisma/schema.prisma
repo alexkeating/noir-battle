@@ -10,6 +10,8 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// This will need to be modified
+// to have the public inputs.
 model Proof {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
