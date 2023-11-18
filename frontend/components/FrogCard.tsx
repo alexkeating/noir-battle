@@ -31,13 +31,11 @@ export const FrogCard = ({
     return <Container></Container>;
   }
 
-  return showPCD ? (
+  return (
     <Container>
-      <a onClick={() => setShowPCD(false)}>View as frog</a>
+      <h1>{frogData.name}</h1>
+      <h3>{isDead ? "alive... for now" : "you killed it"}</h3>
       {pcd && <CopyFrogPCD pcd={pcd} />}
-    </Container>
-  ) : (
-    <Container>
       <a onClick={() => setShowPCD(true)}>View as proof-carrying data</a>
       <div className={styles.frog}>
         <img className={styles.blood} src="blood.png" />
