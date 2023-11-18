@@ -128,3 +128,13 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Noir
+**/cache
+**/out
+**/lib/*
+**/proofs
+**/broadcast
+**/.env
+**/plonk_vk.sol
+**/circuits/target/*
