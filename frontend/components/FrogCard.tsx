@@ -33,12 +33,10 @@ export const FrogCard = ({
 
   return (
     <Container>
-      <h1>{frogData.name}</h1>
-      <h3>{isDead ? "alive... for now" : "you killed it"}</h3>
-      {pcd && <CopyFrogPCD pcd={pcd} />}
-      <a onClick={() => setShowPCD(true)}>View as proof-carrying data</a>
+      <h2 className={styles.frogName}>{frogData.name}</h2>
+      {/* <h3>{isDead ? "alive... for now" : "you killed it"}</h3> */}
       <div className={styles.frog}>
-        <img className={styles.blood} src="blood.png" />
+        {/* <img className={styles.blood} src="blood.png" /> */}
         <FrogImg src={frogData?.imageUrl} draggable={false} />
       </div>
 
@@ -57,6 +55,8 @@ export const FrogCard = ({
         />
         <FrogAttribute label="BUTY" title="Beauty" value={frogData.beauty} />
       </FrogInfo>
+      {pcd && <CopyFrogPCD pcd={pcd} />}
+      {/* <a onClick={() => setShowPCD(true)}>View as proof-carrying data</a> */}
       {showMore && (
         <>
           <Description>{frogData.description}</Description>
@@ -74,9 +74,9 @@ export const FrogCard = ({
           </FrogInfo>
         </>
       )}
-      <a onClick={() => setShowMore(!showMore)}>
+      <button onClick={() => setShowMore(!showMore)}>
         {showMore ? "Collapse" : "See more"}
-      </a>
+      </button>
     </Container>
   );
 };
@@ -149,7 +149,7 @@ const Container = styled.div`
 const FrogInfo = styled.div`
   display: flex;
   justify-content: space-around;
-  gap: 8px;
+  gap: 16px;
 `;
 
 const FrogImg = styled.img`

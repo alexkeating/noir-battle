@@ -4,6 +4,7 @@
 
 .frogContainer {
   max-width: 340px;
+  border-width: 2px;
 }
 
 .frog {
@@ -25,7 +26,7 @@
 }
 
 .main {
-  min-height: 100vh;
+  min-height: 10vh;
   padding: 4rem 0;
   flex: 1;
   display: flex;
@@ -121,4 +122,30 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.top {
+  top: 0px;
+  text-align: center;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.frogName {
+  text-align: center;
+}
+
+.bottom {
+  bottom: 20px;
+  text-align: center;
 }
