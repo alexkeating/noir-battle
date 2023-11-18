@@ -1,0 +1,3 @@
+[submodule "noir-turn/lib/forge-std"]
+	path = noir-turn/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
