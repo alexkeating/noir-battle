@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@noir-lang/noir_js": "^0.19.2",
     "@pcd/eddsa-frog-pcd": "^0.0.1",
     "@pcd/eddsa-pcd": "^0.3.0",
     "@pcd/passport-interface": "^0.5.1",

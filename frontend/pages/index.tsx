@@ -16,6 +16,7 @@ import {
   openPassportPopup,
   usePassportPopupMessages,
 } from "@pcd/passport-interface";
+import {generateProof} from "../utils/generateProof"
 
 const expectedPublicKey = [
   "0f183dcba06341a4549d78c3f8ca0060a9d6aca795103cb6957d1e2973b5fdeb",

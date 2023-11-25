@@ -1071,6 +1071,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@noir-lang/acvm_js@npm:0.33.0":
+  version: 0.33.0
+  resolution: "@noir-lang/acvm_js@npm:0.33.0"
+  checksum: 3e0e7d7f0b858369f321ad631361972e48b12b3995fed0f903f1163987d03916f90ae2762afdfafeb2f4d5230ef64eb7d119e6d03af3e27667d36c7a39c30ba2
+  languageName: node
+  linkType: hard
+
+"@noir-lang/noir_js@npm:^0.19.2":
+  version: 0.19.2
+  resolution: "@noir-lang/noir_js@npm:0.19.2"
+  dependencies:
+    "@noir-lang/acvm_js": "npm:0.33.0"
+    "@noir-lang/noirc_abi": "npm:0.19.2"
+    "@noir-lang/types": "npm:0.19.2"
+  checksum: 5284c9b153f115cb8e9aa0580413c6bebbf1e2482193ae3ec3c184689b0bf156d5f0c49e1e82e690afcdec89cfedd74488fe1d89cd7e2ba32103aa629e290ed7
+  languageName: node
+  linkType: hard
+
+"@noir-lang/noirc_abi@npm:0.19.2":
+  version: 0.19.2
+  resolution: "@noir-lang/noirc_abi@npm:0.19.2"
+  checksum: 24e07cf654305cc7db69e6b2ba5cbe723661cc0edddc06da6baabf51fa72806852008189ac4760c43e6e1521f038dae68de35789d5f8bfdcbe77a00a10bea249
+  languageName: node
+  linkType: hard
+
+"@noir-lang/types@npm:0.19.2":
+  version: 0.19.2
+  resolution: "@noir-lang/types@npm:0.19.2"
+  dependencies:
+    "@noir-lang/noirc_abi": "npm:0.19.2"
+  checksum: 487a5720cb07191e655e95547d062c3917ff31d94ec5d7ab0737baae399ad11adbb0f93d976d280b3b61679e385f87d4e59516c7d7e1e97111efef11e084201c
+  languageName: node
+  linkType: hard
+
 "@npmcli/agent@npm:^2.0.0":
   version: 2.2.0
   resolution: "@npmcli/agent@npm:2.2.0"
@@ -4769,6 +4803,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "frontend@workspace:."
   dependencies:
+    "@noir-lang/noir_js": "npm:^0.19.2"
     "@pcd/eddsa-frog-pcd": "npm:^0.0.1"
     "@pcd/eddsa-pcd": "npm:^0.3.0"
     "@pcd/passport-interface": "npm:^0.5.1"
